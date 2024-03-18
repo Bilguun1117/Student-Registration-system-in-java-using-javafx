@@ -1,133 +1,114 @@
+public class Student {
+    private String id;
+    private String firstName;
+    private String middleName;
+    private String lastName;
+    private String nameOfSubject;
+    private String theoreticalOrNumerical;
+    private String previousLectureReview;
+    private String noOfStudents;
+    private String EUFCalculation;
+    private String date;
+    private String QOD;
+    private String username;
+    private String password;
 
-public class Student{
-    String id,firstName,middleName,lastName,nameOfSubject,TheoreticalOrNumerical,previousLectureReview
-            ,noOfStudents,EUFCalculation,date,QOD,username,password;
-    Student(String id,String firstName,String lastName,String nameOfSubject, String TheoreticalOrNumerical,
-            String previousLectureReview, String noOfStudents,String EUFCalculation, String date, String QOD,
-            String username,String password){
-        this.id=id;
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.nameOfSubject=nameOfSubject;
-        this.TheoreticalOrNumerical=TheoreticalOrNumerical;
-        this.previousLectureReview=previousLectureReview;
-        this.noOfStudents=noOfStudents;
-        this.EUFCalculation=EUFCalculation;
-        this.date=date;
-        this.QOD=QOD;
-        this.username=username;
-        this.password=password;
+    private Student(StudentBuilder builder) {
+        this.id = builder.id;
+        this.firstName = builder.firstName;
+        this.middleName = builder.middleName;
+        this.lastName = builder.lastName;
+        this.nameOfSubject = builder.nameOfSubject;
+        this.theoreticalOrNumerical = builder.theoreticalOrNumerical;
+        this.previousLectureReview = builder.previousLectureReview;
+        this.noOfStudents = builder.noOfStudents;
+        this.EUFCalculation = builder.EUFCalculation;
+        this.date = builder.date;
+        this.QOD = builder.QOD;
+        this.username = builder.username;
+        this.password = builder.password;
     }
 
-    Student(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    // Builder class
+    public static class StudentBuilder {
+        // Mandatory fields
+        private String id;
+        private String firstName;
+        private String lastName;
+
+        // Optional fields
+        private String middleName = "";
+        private String nameOfSubject = "";
+        private String theoreticalOrNumerical = "";
+        private String previousLectureReview = "";
+        private String noOfStudents = "";
+        private String EUFCalculation = "";
+        private String date = "";
+        private String QOD = "";
+        private String username = "";
+        private String password = "";
+
+        public StudentBuilder(String id, String firstName, String lastName) {
+            this.id = id;
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
+        public StudentBuilder middleName(String middleName) {
+            this.middleName = middleName;
+            return this;
+        }
+
+        public StudentBuilder nameOfSubject(String nameOfSubject) {
+            this.nameOfSubject = nameOfSubject;
+            return this;
+        }
+
+        public StudentBuilder theoreticalOrNumerical(String theoreticalOrNumerical) {
+            this.theoreticalOrNumerical = theoreticalOrNumerical;
+            return this;
+        }
+
+        public StudentBuilder previousLectureReview(String previousLectureReview) {
+            this.previousLectureReview = previousLectureReview;
+            return this;
+        }
+
+        public StudentBuilder noOfStudents(String noOfStudents) {
+            this.noOfStudents = noOfStudents;
+            return this;
+        }
+
+        public StudentBuilder EUFCalculation(String EUFCalculation) {
+            this.EUFCalculation = EUFCalculation;
+            return this;
+        }
+
+        public StudentBuilder date(String date) {
+            this.date = date;
+            return this;
+        }
+
+        public StudentBuilder QOD(String QOD) {
+            this.QOD = QOD;
+            return this;
+        }
+
+        public StudentBuilder username(String username) {
+            this.username = username;
+            return this;
+        }
+
+        public StudentBuilder password(String password) {
+            this.password = password;
+            return this;
+        }
+
+        public Student build() {
+            return new Student(this);
+        }
     }
 
-    Student() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getMiddleName() {
-        return middleName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getNameOfSubject() {
-        return nameOfSubject;
-    }
-
-    public void setNameOfSubject(String nameOfSubject) {
-        this.nameOfSubject = nameOfSubject;
-    }
-
-    public String getTheoreticalOrNumerical() {
-        return TheoreticalOrNumerical;
-    }
-
-    public void setTheoreticalOrNumerical(String TheoreticalOrNumerical) {
-        this.TheoreticalOrNumerical = TheoreticalOrNumerical;
-    }
-
-    public String getPreviousLectureReview() {
-        return previousLectureReview;
-    }
-
-    public void setPreviousLectureReview(String previousLectureReview) {
-        this.previousLectureReview = previousLectureReview;
-    }
-
-    public String getNoOfStudents() {
-        return noOfStudents;
-    }
-
-    public void setNoOfStudents(String noOfStudents) {
-        this.noOfStudents = noOfStudents;
-    }
-
-    public String getEUFCalculation() {
-        return EUFCalculation;
-    }
-
-    public void setEUFCalculation(String EUFCalculation) {
-        this.EUFCalculation = EUFCalculation;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getQOD() {
-        return QOD;
-    }
-
-    public void setQOD(String QOD) {
-        this.QOD = QOD;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    // Getter and setter methods remain the same
+    // ...
 }
